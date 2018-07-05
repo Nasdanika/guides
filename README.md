@@ -1,2 +1,3 @@
-# guides
-Documentation which is not related to a specific Nasdanika product
+# Guides
+
+Maven site for https://www.nasdanika.org/products/guides
