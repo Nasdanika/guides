@@ -61,101 +61,101 @@ Add
 	</extension>
 </extensions>
 ```
- under ``build``. The above snippet uses FTP for deployment. You can use some other protocol.
+under ``build``. The above snippet uses FTP for deployment. You can use some other protocol.
  
- Copy repository and other resources to the site using [maven-resources-plugin](https://maven.apache.org/plugins/maven-resources-plugin/). The below snippet shows copying the repository and models and API documentation from other bundles.
+Copy repository and other resources to the site using [maven-resources-plugin](https://maven.apache.org/plugins/maven-resources-plugin/). The below snippet shows copying the repository and models and API documentation from other bundles.
  
  ```xml
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.1</version>
-				<executions>
-					<execution>
-						<id>copy-repository</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/target</directory>
-									<includes>
-										<include>repository/**</include>
-										<include>org.nasdanika.codegen.repository-*.zip</include>
-									</includes>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-modeldoc</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site/modeldoc</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../org.nasdanika.codegen.editor/doc/site</directory>
-									<filtering>false</filtering>
-								</resource>								
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-model-javadoc</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site/apidocs/model</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../org.nasdanika.codegen/target/site/apidocs</directory>
-									<filtering>false</filtering>
-								</resource>								
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-edit-javadoc</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site/apidocs/edit</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../org.nasdanika.codegen.edit/target/site/apidocs</directory>
-									<filtering>false</filtering>
-								</resource>								
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-editor-javadoc</id>
-						<phase>pre-site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site/apidocs/editor</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../org.nasdanika.codegen.editor/target/site/apidocs</directory>
-									<filtering>false</filtering>
-								</resource>								
-							</resources>
-						</configuration>
-					</execution>					
-				</executions>
-			</plugin>
+<plugin>
+	<artifactId>maven-resources-plugin</artifactId>
+	<version>3.0.1</version>
+	<executions>
+		<execution>
+			<id>copy-repository</id>
+			<phase>pre-site</phase>
+			<goals>
+				<goal>copy-resources</goal>
+			</goals>
+			<configuration>
+				<outputDirectory>${basedir}/target/site</outputDirectory>
+				<resources>
+					<resource>
+						<directory>${basedir}/target</directory>
+						<includes>
+							<include>repository/**</include>
+							<include>org.nasdanika.codegen.repository-*.zip</include>
+						</includes>
+						<filtering>false</filtering>
+					</resource>
+				</resources>
+			</configuration>
+		</execution>
+		<execution>
+			<id>copy-modeldoc</id>
+			<phase>pre-site</phase>
+			<goals>
+				<goal>copy-resources</goal>
+			</goals>
+			<configuration>
+				<outputDirectory>${basedir}/target/site/modeldoc</outputDirectory>
+				<resources>
+					<resource>
+						<directory>${basedir}/../org.nasdanika.codegen.editor/doc/site</directory>
+						<filtering>false</filtering>
+					</resource>								
+				</resources>
+			</configuration>
+		</execution>
+		<execution>
+			<id>copy-model-javadoc</id>
+			<phase>pre-site</phase>
+			<goals>
+				<goal>copy-resources</goal>
+			</goals>
+			<configuration>
+				<outputDirectory>${basedir}/target/site/apidocs/model</outputDirectory>
+				<resources>
+					<resource>
+						<directory>${basedir}/../org.nasdanika.codegen/target/site/apidocs</directory>
+						<filtering>false</filtering>
+					</resource>								
+				</resources>
+			</configuration>
+		</execution>
+		<execution>
+			<id>copy-edit-javadoc</id>
+			<phase>pre-site</phase>
+			<goals>
+				<goal>copy-resources</goal>
+			</goals>
+			<configuration>
+				<outputDirectory>${basedir}/target/site/apidocs/edit</outputDirectory>
+				<resources>
+					<resource>
+						<directory>${basedir}/../org.nasdanika.codegen.edit/target/site/apidocs</directory>
+						<filtering>false</filtering>
+					</resource>								
+				</resources>
+			</configuration>
+		</execution>
+		<execution>
+			<id>copy-editor-javadoc</id>
+			<phase>pre-site</phase>
+			<goals>
+				<goal>copy-resources</goal>
+			</goals>
+			<configuration>
+				<outputDirectory>${basedir}/target/site/apidocs/editor</outputDirectory>
+				<resources>
+					<resource>
+						<directory>${basedir}/../org.nasdanika.codegen.editor/target/site/apidocs</directory>
+						<filtering>false</filtering>
+					</resource>								
+				</resources>
+			</configuration>
+		</execution>					
+	</executions>
+</plugin>
 ``` 
 
 Add distribution management and URL as shown in the example below:
@@ -169,6 +169,12 @@ Add distribution management and URL as shown in the example below:
 	</site>
 </distributionManagement>	
 ```
+
+The above snippet has a hardcored deployment directory. You may choose to add version to it and use the group id for consistency, if you have many workspaces/products.
+
+### Product deployment
+
+If you have a product simply add product archives to the ``includes`` element in the first ``execution`` above.
 
 ## Deploying sources
 
