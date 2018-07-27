@@ -11,7 +11,9 @@
     </breadcrumbs>
  
    <menu name="Build &amp; Deploy">
-      <!--<item name="Overview" href="index.html" />-->
+      <item name="Eclipse">
+      	<item name="Single site" href="eclipse/single-site.html"/>
+      </item>
    </menu>
  
   </body>    

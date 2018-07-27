@@ -17,7 +17,7 @@ Add the following plug-in to the ``pom.xml``:
 
 ```xml
 <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
+    <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-site-plugin</artifactId>
     <version>3.7.1</version>
     <configuration>
@@ -27,4 +27,4 @@ Add the following plug-in to the ``pom.xml``:
 </plugin>		
 ``` 
 
-It tells Maven to skip site building and deploying for all plug-ins unless overriden.
+It tells Maven to skip site building and deploying for all plug-ins unless overridden.
