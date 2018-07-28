@@ -1,6 +1,6 @@
 # Single Site Eclipse Workspace
 
-This guide explains how to build and deploy a "workspace" - a set of related projects - using [Tycho](https://www.eclipse.org/tycho/)/Maven and featuring a single site with a [P2](https://www.eclipse.org/equinox/p2/) repository and product binaries for [Eclipse products](https://wiki.eclipse.org/FAQ_What_is_an_Eclipse_product%3F]. 
+This guide explains how to build and deploy a "workspace" - a set of related projects - using [Tycho](https://www.eclipse.org/tycho/)/Maven and featuring a single site with a [P2](https://www.eclipse.org/equinox/p2/) repository and product binaries for [Eclipse products](https://wiki.eclipse.org/FAQ_What_is_an_Eclipse_product%3F). 
 
 A workspace includes:
 
@@ -39,7 +39,6 @@ Add
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-site-plugin</artifactId>
-    <version>3.7.1</version>
     <configuration>
         <skip>false</skip>
         <skipDeploy>false</skipDeploy>
