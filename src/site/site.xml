@@ -13,6 +13,7 @@
    <menu name="Build &amp; Deploy">
       <item name="Eclipse">
       	<item name="Single site" href="build-and-deploy/eclipse/single-site.html"/>
+      	<item name="Eclipse Package" href="build-and-deploy/eclipse/eclipse-package.html"/>
       </item>
    </menu>
  
