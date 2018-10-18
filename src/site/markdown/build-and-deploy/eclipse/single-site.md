@@ -33,6 +33,14 @@ It tells Maven to skip site building and deploying for all plug-ins unless overr
 
 Create a site under ``src\site`` - see [Maven site](https://maven.apache.org/plugins/maven-site-plugin/) for more details.
 
+Add ``siteDir`` property:
+
+```
+<properties>
+	<siteDir>${project.artifactId}/${project.version}</siteDir>
+</properties>
+```
+
 Add
 
 ```xml
@@ -160,11 +168,11 @@ Copy repository and other resources to the site using [maven-resources-plugin](h
 Add distribution management and URL as shown in the example below:
 
 ```xml
-<url>https://www.nasdanika.org/products/codegen/</url>
+<url>https://www.nasdanika.org/products/${siteDir}/</url>
 <distributionManagement>
 	<site>
 		<id>nasdanika-org</id>
-		<url>ftp://${env.FTP_SERVER}/codegen</url>
+		<url>ftp://${env.FTP_SERVER}/${siteDir}</url>
 	</site>
 </distributionManagement>	
 ```
@@ -330,13 +338,15 @@ Maven Wagon does not clean the remote folder before deployment - it just deploys
 			<phase>post-site</phase>
 			<configuration>
 				<target>
-					<ftp passive="yes" action="delete" server="${env.FTP_SERVER}" userid="${env.FTP_USER}" password="${env.FTP_PASSWORD}" remotedir="/site">
+					<ftp passive="yes" action="mkdir" server="${env.FTP_SERVER}" userid="${env.FTP_USER}" password="${env.FTP_PASSWORD}" remotedir="/${siteDir}"/>
+				
+					<ftp passive="yes" action="delete" server="${env.FTP_SERVER}" userid="${env.FTP_USER}" password="${env.FTP_PASSWORD}" remotedir="/${siteDir}">
 						<fileset defaultexcludes="false">
 							<include name="**" />
 						</fileset>
 					</ftp>
 					
-					<ftp passive="yes" action="rmdir" server="${env.FTP_SERVER}" userid="${env.FTP_USER}" password="${env.FTP_PASSWORD}" remotedir="/site">
+					<ftp passive="yes" action="rmdir" server="${env.FTP_SERVER}" userid="${env.FTP_USER}" password="${env.FTP_PASSWORD}" remotedir="/${siteDir}">
 						<fileset defaultexcludes="false">
 							<include name="**" />
 						</fileset>
